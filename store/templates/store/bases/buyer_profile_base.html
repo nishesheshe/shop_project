@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'store/base.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-6 text-start">
+            <div class="btn-group-vertical">
+                <a href="{% url 'shopping_cart' %}" class="btn btn-success">Shopping Cart</a>
+                <a href="{% url 'buyer_favourites' %}" class="btn btn-success">Favourites</a>
+            </div>
+        </div>
+        <div class="col-6 text-end">
+            <div class="btn-group-vertical">
+                <a href="#" class="btn btn-success">Edit Profile</a>
+                <a href="#" class="btn btn-success">Reset Password</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

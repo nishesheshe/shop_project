@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container text-dark">
+    {% if request.user.is_buyer %}
+        {% if not shopping_cart_button_used %}
+            <form action="{% url 'add_to_shopping_cart' product.product_slug %}" method="POST">{% csrf_token %}
+                <input type="submit" class="btn btn-success" value="Add To Shopping Cart">
+            </form>
+        {% elif shopping_cart_button_used %}
+            <form action="{% url 'remove_from_shopping_cart' product.product_slug %}" method="POST">{% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="Remove From Shopping Cart">
+            </form>
+        {% endif %}
+    {% endif %}
+    {% if request.user.is_buyer %}
+        {% if not favourites_button_used %}
+            <form action="{% url 'add_to_favourites' product.product_slug%}" method="POST">{% csrf_token %}
+                <input type="submit" class="btn btn-success" value="Add To Favourites">
+            </form>
+        {% elif favourites_button_used %}
+            <form action="{% url 'remove_from_favourites' product.product_slug%}" method="POST">{% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="Remove From Favourites">
+            </form>
+        {% endif %}
+    {% endif %}
+    <p>Seller: {{product.seller.username}}</p>
+    <p>Category: {{product.category}}</p>
+    <p>Title: {{product.title}}</p>
+    <p>Color: {{product.color}}</p>
+    <p>Weight: {{product.weight}}</p>
+    <p>Cost: {{product.cost}}</p>
+    <p>Product code: {{product.product_code}}</p>
+    <p>Description: {{product.product_description}}</p>
+    <p>Sizes:</p>
+    {% if not sizes %}
+        <p>OUT OF STOCK</p>
+    {% else %}
+    {% for size in product_sizes %}
+        {% if size.count %}
+            <p>{{size}} шт</p>
+        {% endif %}
+    {% endfor %}
+    {% endif %}
+    <img src={{product.image.url}} alt="{{product.name}}">
+</div>
+{% endblock content %}
+</body>
+</html>

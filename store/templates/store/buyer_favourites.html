@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'store/bases/buyer_profile_base.html' %}
+{% for product in products %}
+  <a href="{% url 'item_detail' product.product_model_slug product.product_slug %}">{{product.title}}</a>
+{% endfor %}
+</body>
+</html>

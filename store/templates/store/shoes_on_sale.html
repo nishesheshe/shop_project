@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'store/bases/seller_profile_functionality_base.html' %}
+<div class="container">
+    {% for product in shoes_on_sale %}
+        <p>
+            <div class="row">
+                <div class="col-3">
+                    <a href="{% url 'item_detail' product.product_model_slug product.product_slug %}">{{product.title}}</a>
+                </div>
+                <div class="col-3">
+                    <a href="{% url 'product_edit' product.product_slug %}" class="btn btn-success text-end">Edit {{product.title}}</a>
+                </div>
+                <div class="col-3">
+                    <a href="{% url 'edit_sizes' product.product_slug %}" class="btn btn-success text-end">Edit {{product.title}} sizes</a>
+                </div>
+                <div class="col-3">
+                    <form action="{% url 'remove_product_from_sale' product.product_slug %}" method="POST">{% csrf_token %}
+                        <input type="submit" class="btn btn-success" value="Remove From On Sale">
+                    </form>
+                </div>
+            </div>
+        </p>
+    <hr class="bg-primary" size="5">
+    {% endfor %}
+</div>
+</body>
+</html>

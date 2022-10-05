@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'store/item_detail.html' %}
+{% block content %}
+<div class="text-dark">
+    <form method="POST">{% csrf_token %}
+        <input type="radio" name="delete" id="Yes" value="Y">
+        <label for="Yes">Yes</label>
+        <input type="radio" name="delete" id="No" value="">
+        <label for="No">No</label>
+        <input type="submit" class="btn btn-danger" value="Submit">
+    </form>
+</div>
+{% endblock content %}
+</body>
+</html>

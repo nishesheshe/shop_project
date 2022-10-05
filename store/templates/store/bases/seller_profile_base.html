@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="container text-start">
+                <div class="btn-group-vertical">
+                    <a href="{% url 'select_category' %}" class="btn btn-success">Place a product</a>
+                    <a href="{% url 'seller_withdrawn_from_sale' %}" class="btn btn-success">Withdrawn From Sale</a>
+                    <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      On Sale
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'seller_products_on_sale' %}" class="dropdown-item">Products On Sale</a></li>
+                      <li><a href="{% url 'seller_hats_on_sale' %}" class="dropdown-item">Hats On Sale</a></li>
+                      <li><a href="{% url 'seller_outwear_on_sale' %}" class="dropdown-item">Outwear On Sale</a></li>
+                      <li><a href="{% url 'seller_pants_on_sale' %}" class="dropdown-item">Pants On Sale</a></li>
+                      <li><a href="{% url 'seller_shoes_on_sale' %}" class="dropdown-item">Shoes On Sale</a></li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+        <div class="col-6 text-end">
+            <div class="btn-group-vertical">
+                <a href="#" class="btn btn-success">Edit Profile</a>
+                <a href="#" class="btn btn-success">Change Password</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+</body>
+</html>
