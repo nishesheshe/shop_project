@@ -30,7 +30,7 @@ def user_registration_view(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(email=email, password=raw_password)
             login(request, user)
-            return redirect('home')
+            return redirect('all_items')
     else:
         form = StoreUserSignUpForm()
     context['form'] = form
