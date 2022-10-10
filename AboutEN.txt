@@ -1,0 +1,21 @@
+This is my first Django project. The project I created is an online store of street things.
+As a site user, you can do the following:
+1) Register on the site.
+2) View products by different categories (Hats, Outerwear, pants, shoes).
+3) Add items to the shopping cart.
+4) Add things to your favorites.
+5) Change your shopping cart.
+6) Change your favorite.
+As a seller on the site, you can do the following:
+1) Register on the site
+2) Place products for sale in all categories (Hats, Outerwear, pants, shoes).
+3) Change the characteristics of the product after placement (Name, color, etc.)
+4) Set the dimensions for each product and specify the quantity of goods per size
+5) You can withdraw the product from sale and it will not be displayed on the website.
+For the buyer and seller, convenient options are implemented in the "Profile" section
+The buyer has access to the list of items in the basket and the favorite section.
+The seller has access to the list of things that he has posted and to the list of things that he has withdrawn from sale.
+
+I consider the main problem of my project to be a redundant system of models. Classes Hat, Outerwear, Trousers, Shoes are not necessary but cause a lot of problems. The same is true with the Sizes of hats, outerwear, trousers, shoes.
+This problem can be solved by changing the Product model from abstract to independent, as a result of which the need to create classes Hat, Outerwear, Trousers, Shoes, Sizes of hats, outerwear, trousers, shoes disappears.
+Since this is my first project, judge, but not too strictly 😊
